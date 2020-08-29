@@ -1,12 +1,15 @@
 import React from 'react'
 import Todo from './Todo.js'
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = ({ todos, setTodos, filteredTodos }) => {
 	return (
 		<div className="flex flex-col mt-4">
-			<ul className="m-0 flex flex-col">
+			<div className="flex items-center">
+				{ filteredTodos.length } items displayed
+			</div>
+			<ul className="m-0 flex flex-col mt-5">
 				{
-					todos.map(todo => (
+					filteredTodos.map(todo => (
 						<Todo 
 							setTodos={setTodos}
 						    todos={todos}
@@ -16,7 +19,7 @@ const TodoList = ({ todos, setTodos }) => {
 					))
 				}
 
-				
+
 			</ul>
 		</div>
 	);
