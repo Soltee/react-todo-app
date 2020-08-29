@@ -1,6 +1,10 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
+	const notifyError = () => toast("Wow so easy !");
+	const notify = () => toast("Wow so easy !");
 
 	const inputTextHandler = (e) => {
 		console.log(e.target.value);
@@ -14,7 +18,19 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
 
 	const setTodosHandler = (e) => {
 		e.preventDefault();
-		if(inputText === '') return;
+		if(inputText === '') {
+			toast.error('🦄 Enter some tasks!', {
+				position: "top-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+			});
+
+			return;
+		}
 		setTodos([
 			...todos, {
 				text      : inputText,
@@ -24,10 +40,23 @@ const Form = ({ inputText, setInputText, todos, setTodos, setStatus }) => {
 		]);
 
 		setInputText('');
+		toast.info('🦄 Tasks added!', {
+				position: "top-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+		});
+
+
 	};
 
 	return (
 		<form>
+			<ToastContainer />
+
 			<div className="flex items-center w-full">
 				<input 
 					value={inputText} 
