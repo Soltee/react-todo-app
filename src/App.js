@@ -15,7 +15,7 @@ function App() {
 
 	      <div className="my-4 flex flex-col justify-center items-center w-full">
 	      	<Form todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText} />
-	      	<TodoList  todos={todos} />
+	      	<TodoList  todos={todos} setTodos={setTodos} inputText={inputText} setInputText={setInputText} />
 	      </div>
 
 

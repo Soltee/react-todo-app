@@ -9,7 +9,7 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
 
 	const setTodosHandler = (e) => {
 		e.preventDefault();
-
+		if(inputText === '') return;
 		setTodos([
 			...todos, {
 				text      : inputText,
