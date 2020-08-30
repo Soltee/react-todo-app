@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
 import Form from './components/Form.js';
 import TodoList from './components/TodoList.js';
 
@@ -52,31 +53,34 @@ function App() {
 	}
 
   	return (
-	    <div className="App bg-gray-900 text-white py-8 h-screen w-full max-w-4xl">
-	      <header className="flex justify-center items-center">
-	      	<h1 className="text-center px-3 py-3 uppercase leading-loose text-2xl md:text-4xl">Todo Project </h1>
-	      </header>
+	    <div className="App bg-gray-900 text-white py-8 h-screen w-full ">
+		    <div className="App  text-white py-8 h-full w-full max-w-4xl mx-auto">
 
-	      <div className="my-4 flex flex-col justify-center items-center w-full">
-	      	<Form 
-	      		todos={todos} 
-	      		setTodos={setTodos} 
-	      		inputText={inputText} 
-	      		setInputText={setInputText} 
-	      		setStatus={setStatus} 
-	      		/>
+				<header className="flex justify-center items-center">
+		      	    <h1 className="text-center px-3 py-3 uppercase leading-loose text-2xl md:text-4xl">Todo Project </h1>
+		        </header>
 
-	      	<TodoList  
-	      		todos={todos} 
-	      		setTodos={setTodos} 
-	      		inputText={inputText} 
-	      		setInputText={setInputText} 
-	      		filteredTodos={filteredTodos}
-	      		/>
-	      </div>
+		      <div className="my-4 flex flex-col justify-center items-center w-full">
+		      	<Form 
+		      		todos={todos} 
+		      		setTodos={setTodos} 
+		      		inputText={inputText} 
+		      		setInputText={setInputText} 
+		      		setStatus={setStatus} 
+		      		/>
+
+		      	<TodoList  
+		      		todos={todos} 
+		      		setTodos={setTodos} 
+		      		inputText={inputText} 
+		      		setInputText={setInputText} 
+		      		filteredTodos={filteredTodos}
+		      		/>
+		      </div>
 
 
-	    </div>
+		    </div>
+	</div>
   	);
 }
 

@@ -1,13 +1,27 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Todo = ({ text, key, todo, todos, setTodos }) => {
 	
 	const deleteHandler = () => {
 		setTodos(todos.filter(el => el.id !== todo.id));
+
+		toast.info('🦄 Tasks deleted!', {
+				position: "top-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+		});
 	}
 
 
 	const setCompletedHandler = () => {
+
+
 		setTodos(todos.map((item) => {
 			if(item.id === todo.id){
 				return {
@@ -16,11 +30,25 @@ const Todo = ({ text, key, todo, todos, setTodos }) => {
 			}
 			return item;
 		}));
+
+		toast.info('🦄 Tasks completed!', {
+				position: "top-right",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+		});
+
+		
 	}
 
 
 	return (
 		<div className="todo flex items-center w-full">
+			<ToastContainer />
+
 			<li className={`px-3 py-3 text-white list-none flex-1 ${todo.completed ? "line-through" : ''}`}>{ text }</li>
 			
 			<div class="flex items-center">
